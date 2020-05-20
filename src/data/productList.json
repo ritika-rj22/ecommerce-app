@@ -1,0 +1,82 @@
+[
+    {
+        "productName": "Product Name 1",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1290",
+        "productId": 123,
+        "categoryId": 12,
+        "image": "Image1.png"
+    },
+    {
+        "productName": "Product Name 2",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1140",
+        "productId": 124,
+        "categoryId": 12,
+        "image": "Image2.png"
+    },
+    {
+        "productName": "Product Name 3",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1230",
+        "productId": 125,
+        "categoryId": 13,
+        "image": "Image3.png"
+    },
+    {
+        "productName": "Product Name 4",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1000",
+        "productId": 126,
+        "categoryId": 13,
+        "image": "Image4.png"
+    },
+    {
+        "productName": "Product Name 5",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1500",
+        "productId": 127,
+        "categoryId": 14,
+        "image": "Image7.png"
+    },
+    {
+        "productName": "Product Name 6",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1300",
+        "productId": 128,
+        "categoryId": 14,
+        "image": "Image4.png"
+    },
+    {
+        "productName": "Product Name 7",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1250",
+        "productId": 129,
+        "categoryId": 15,
+        "image": "Image7.png"
+    },
+    {
+        "productName": "Product Name 8",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1100",
+        "productId": 130,
+        "categoryId": 15,
+        "image": "Image8.png"
+    },
+    {
+        "productName": "Product Name 9",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "1350",
+        "productId": 131,
+        "categoryId": 12,
+        "image": "Image8.png"
+    },
+    {
+        "productName": "Product Name 10",
+        "productDescription": "Lorep Ipsum",
+        "productPrice": "900",
+        "productId": 132,
+        "categoryId": 15,
+        "image": "Image10.png"
+    }
+]

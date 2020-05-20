@@ -1,5 +1,5 @@
 import { FETCH_PRODUCTS } from "./types";
-import ProductList from "../productList.json";
+import ProductList from "../data/productList.json";
 
 export const fetchProducts = () => dispatch => {
     dispatch({

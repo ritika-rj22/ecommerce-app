@@ -1,0 +1,22 @@
+[
+    {
+        "categoryName": "Category Name 1",
+        "categoryDescription": "Lorep Ipsum",
+        "categoryId": 12
+    },
+    {
+        "categoryName": "Category Name 2",
+        "categoryDescription": "Lorep Ipsum",
+        "categoryId": 13
+    },
+    {
+        "categoryName": "Category Name 3",
+        "categoryDescription": "Lorep Ipsum",
+        "categoryId": 14
+    },
+    {
+        "categoryName": "Category Name 4",
+        "categoryDescription": "Lorep Ipsum",
+        "categoryId": 15
+    }
+]

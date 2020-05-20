@@ -7,6 +7,7 @@ import Products from "./components/products";
 import Footer from "./components/footer";
 import Cart from "./components/cart";
 import Home from "./components/home";
+import Category from "./components/category";
 
 class App extends Component {
   state = {}
@@ -17,10 +18,11 @@ class App extends Component {
         <Header />
         <Banner />
         <div className="container mb-4">
-
+          <img className="pic-1" src={Image} />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/cart" component={Cart} />
+            <Route path="/category/:categoryName" component={Category} />
           </Switch>
 
         </div>
