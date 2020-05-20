@@ -1,0 +1,55 @@
+
+import React, { Fragment, Component } from "react";
+import { NavLink } from "react-router-dom";
+
+class Header extends Component {
+    state = {}
+    render() {
+        return (
+            <Fragment>
+                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                    <div className="container">
+                        <a className="navbar-brand" href="index.html">Simple Ecommerce</a>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div className="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+                            <ul className="navbar-nav m-auto">
+                                <li className="nav-item m-auto">
+                                    <NavLink to="/" className="nav-link">Home</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/product" className="nav-link">Product</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/cart" className="nav-link">Cart</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/contact" className="nav-link">Contact</NavLink>
+                                </li>
+                            </ul>
+
+                            <form className="form-inline my-2 my-lg-0">
+                                <div className="input-group input-group-sm">
+                                    <input type="text" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search..." />
+                                    <div className="input-group-append">
+                                        <button type="button" className="btn btn-secondary btn-number">
+                                            <i className="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <a className="btn btn-success btn-sm ml-3" href="cart.html">
+                                    <i className="fa fa-shopping-cart"></i> Cart
+                    <span className="badge badge-light">3</span>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </Fragment >
+        );
+    }
+}
+
+export default Header;
