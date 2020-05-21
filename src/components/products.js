@@ -31,8 +31,27 @@ Products.propTypes = {
     products: PropTypes.array.isRequired
 }
 
-const mapStateToProps = state => ({
-    products: state.products.items
-})
+export const categoryFilter = (arr, categoryId) => {
+    if(!categoryId || !categoryId.length) return arr;
+
+    return arr.filter(product => categoryId.includes(product.categoryId));
+};
+
+const mapStateToProps = state => {
+
+    const categoryId = state.categories.categoryIds;
+    // const orderBy = state.orderBy;
+    // let filterByCategoryArr = state.products.items;
+//   if(categoryId && categoryId.length)  {
+     const filterByCategoryArr = categoryFilter(state.products.items, categoryId);
+//   }
+    // const filterByOrderArr = orderByFilter(filterByBrandArr, orderBy);
+
+
+    // return {products: filterByOrderArr }
+    // return {products: filterByBrandArr}
+
+    return {products: filterByCategoryArr}
+}
 
 export default connect(mapStateToProps, { fetchProducts })(Products);
