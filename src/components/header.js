@@ -5,12 +5,34 @@ import { Dropdown } from "react-bootstrap";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCategories } from '../actions/categoryActions';
+import { continueStatement } from "@babel/types";
 
 class Header extends Component {
+
+    constructor(props) {
+        super(props)
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"))
+
+        this.state = {
+            userInfo: userInfo
+        }
+    }
     componentWillMount() {
         this.props.fetchCategories();
     }
     render() {
+        let loginlogut = "";
+        if (this.state.userInfo) {
+            loginlogut = (<li className="nav-item">
+                <NavLink to="/logout" className="nav-link">Logout</NavLink>
+            </li>)
+        } else {
+            loginlogut = (
+                <li className="nav-item">
+                    <NavLink to="/login" className="nav-link">Login</NavLink>
+                </li>)
+
+        }
         return (
             <Fragment>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -29,9 +51,10 @@ class Header extends Component {
                                 <li className="nav-item">
                                     <NavLink to="/cart" className="nav-link">Cart</NavLink>
                                 </li>
-                                <li className="nav-item">
-                                    <NavLink to="/contact" className="nav-link">Contact</NavLink>
-                                </li>
+                                {
+                                    loginlogut
+                                }
+
                             </ul>
 
                             <form className="form-inline my-2 my-lg-0">

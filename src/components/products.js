@@ -8,6 +8,7 @@ class Products extends Component {
 
     componentWillMount() {
         this.props.fetchProducts();
+        console.log("props", this.props)
     }
 
     render() {

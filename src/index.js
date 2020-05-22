@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Store from './store';
-import './index.css';
+import './style/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Switch, Route } from 'react-router-dom';
-import Cart from './components/cart';
+import { Switch, Route} from 'react-router-dom';
+import Login from './components/login';
 //import Route from 'react-router-dom';
 
 ReactDOM.render((
@@ -15,9 +15,10 @@ ReactDOM.render((
     <Router>
       <Switch>
         <Route path="/" component={App} />
+        <Route path="/login" component={Login} />
       </Switch>
     </Router>
-  </Provider>),
+  </Provider >),
   document.getElementById('root')
 );
 
