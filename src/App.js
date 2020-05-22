@@ -25,9 +25,9 @@ class App extends Component {
         <Login />
       )
     } else {
+      
       return (
         <Fragment>
-
           <Header />
           <Banner />
           <div className="container mb-4">
@@ -37,12 +37,13 @@ class App extends Component {
               <Route path="/cart" component={Cart} />
               <Route path="/category/:categoryName" component={Category} />
               <Route path="/logout" component={Logout} />
+              {/* <Route path="/category/:categoryName" component={Category} /> */}
             </Switch>
 
-          </div>
-          <Footer />
-        </Fragment>
-      );
+            </div>
+            <Footer />
+          </Fragment>
+        );
     }
   }
 }
