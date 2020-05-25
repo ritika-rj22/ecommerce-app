@@ -71,7 +71,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 
 .demo{padding:45px 0}
 .product-grid2{font-family:'Open Sans',sans-serif;position:relative}
-.product-grid2 .product-image2{overflow:hidden;position:relative}
+.product-grid2 .product-image2{overflow:hidden;position:relative;background-color: white;}
 .product-grid2 .product-image2 a{display:block}
 .product-grid2 .product-image2 img{width:100%;height:auto}
 .product-image2 .pic-1{opacity:1;transition:all .5s}

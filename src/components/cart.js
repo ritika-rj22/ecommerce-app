@@ -6,8 +6,8 @@ class Cart extends Component {
     render() {
 
         return (
-            <Fragment>
-                <div class="col-12">
+            < Fragment >
+                <div class="col-12" style={{ backgroundColor: "white" }}>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>

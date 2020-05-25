@@ -2,7 +2,7 @@ import React from "react";
 const Footer = () => {
     return (
         <footer className="text-light">
-            <div className="container">
+            <div className="container" style={{background:"#343a40"}}>
                 <div className="row">
                     <div className="col-md-3 col-lg-4 col-xl-3">
                         <h5>About</h5>
@@ -48,7 +48,7 @@ const Footer = () => {
                         <p className="float-left">
                             <a href="#">Back to top</a>
                         </p>
-                        <p className="text-right text-muted">created with <i className="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>t-php</i></a> | <span>v. 1.0</span></p>
+                        
                     </div>
                 </div>
             </div>
