@@ -8,7 +8,6 @@ class Products extends Component {
 
     componentWillMount() {
         this.props.fetchProducts();
-        console.log("props", this.props)
     }
 
     render() {
@@ -33,7 +32,7 @@ Products.propTypes = {
 }
 
 export const categoryFilter = (arr, categoryId) => {
-    if(!categoryId || !categoryId.length) return arr;
+    if (!categoryId || !categoryId.length) return arr;
 
     return arr.filter(product => categoryId.includes(product.categoryId));
 };
@@ -43,16 +42,16 @@ const mapStateToProps = state => {
     const categoryId = state.categories.categoryIds;
     // const orderBy = state.orderBy;
     // let filterByCategoryArr = state.products.items;
-//   if(categoryId && categoryId.length)  {
-     const filterByCategoryArr = categoryFilter(state.products.items, categoryId);
-//   }
+    //   if(categoryId && categoryId.length)  {
+    const filterByCategoryArr = categoryFilter(state.products.items, categoryId);
+    //   }
     // const filterByOrderArr = orderByFilter(filterByBrandArr, orderBy);
 
 
     // return {products: filterByOrderArr }
     // return {products: filterByBrandArr}
 
-    return {products: filterByCategoryArr}
+    return { products: filterByCategoryArr }
 }
 
 export default connect(mapStateToProps, { fetchProducts })(Products);

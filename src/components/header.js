@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCategories } from '../actions/categoryActions';
 import { continueStatement } from "@babel/types";
+import { fetchProducts } from '../actions/productActions';
 
 class Header extends Component {
 
@@ -14,12 +15,22 @@ class Header extends Component {
         const userInfo = JSON.parse(localStorage.getItem("userInfo"))
 
         this.state = {
-            userInfo: userInfo
+            userInfo: userInfo,
+            searchText: ""
         }
     }
     componentWillMount() {
         this.props.fetchCategories();
     }
+
+    onSearch = () => {
+        this.props.fetchProducts(this.state.searchText);
+    }
+
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
     render() {
         let loginlogut = "";
         if (this.state.userInfo) {
@@ -59,9 +70,9 @@ class Header extends Component {
 
                             <form className="form-inline my-2 my-lg-0">
                                 <div className="input-group input-group-sm ">
-                                    <input type="text" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search..." />
+                                    <input type="text" className="form-control" name="searchText" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search..." onChange={this.onChange} />
                                     <div className="input-group-append">
-                                        <button type="button" className="btn btn-secondary btn-number">
+                                        <button type="button" className="btn btn-secondary btn-number" onClick={this.onSearch}>
                                             <i className="fa fa-search"></i>
                                         </button>
                                     </div>
@@ -108,4 +119,4 @@ const mapStateToProps = state => ({
     categories: state.categories.items
 })
 
-export default connect(mapStateToProps, { fetchCategories })(Header);
+export default connect(mapStateToProps, { fetchCategories, fetchProducts })(Header);

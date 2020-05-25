@@ -6,13 +6,13 @@ class Home extends Component {
     state = {}
     render() {
         return (
-            <Fragment>               
+            <Fragment>
 
                 <div className="container" >
                     <div className="row">
                         <div className="col-md-3">
                             <div className="card" style={{ width: '250px' }} >
-                            <CategoryFilter />
+                                <CategoryFilter />
                             </div>
                         </div>
                         <div className="col-md-9">

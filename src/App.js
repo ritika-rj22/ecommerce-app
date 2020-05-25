@@ -25,7 +25,7 @@ class App extends Component {
         <Login />
       )
     } else {
-      
+
       return (
         <Fragment>
           <Header />
@@ -40,10 +40,10 @@ class App extends Component {
               {/* <Route path="/category/:categoryName" component={Category} /> */}
             </Switch>
 
-            </div>
-            <Footer />
-          </Fragment>
-        );
+          </div>
+          <Footer />
+        </Fragment>
+      );
     }
   }
 }
