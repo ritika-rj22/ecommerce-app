@@ -1,10 +1,39 @@
-import React, { Fragment, Component } from "react";
+import React, { Fragment, Component, useState } from "react";
 import {connect} from 'react-redux';
+import {removeProductFromCart, incrementCartQuantity, decrementCartQuantity} from "../../actions/cartActions";
 
 class CartItem extends Component{
 
+    constructor(props) {
+        super(props);
+        // this.state ={itemQuantity:this.props.quantity, setItemQuantity: this.props.quantity };
+        this.state ={setItemQuantity: this.props.quantity };
+    }
+
     removeItem = () => {
         this.props.removeProductFromCart(this.props.productId);
+    };
+
+    
+    incrementOrDecrement = (e, type) => {
+        // const [itemQuantity, setItemQuantity] = useState(this.props.quantity);
+
+        const value = this.state.setItemQuantity;
+        console.log(type, value);
+
+        if(type === 'increment' && value < 10) {
+            // setItemQuantity(itemQuantity + 1);
+            this.setState({setItemQuantity: value+1});
+            this.props.incrementCartQuantity(this.props.productId);
+        }
+
+
+        if(type === 'decrement' && value > 1) {
+            // setItemQuantity(itemQuantity - 1);
+            this.setState({setItemQuantity: value-1});
+            this.props.decrementCartQuantity(this.props.productId);
+        }
+
     };
 
     render() {
@@ -27,22 +56,22 @@ class CartItem extends Component{
                     <div className="col-4 col-sm-4 col-md-4">
                         <div className="quantity">
                             <input
-                                
+                                onClick={(e) => {this.incrementOrDecrement(e, 'increment')}}
                                 type="button" value="+" className="plus" />
                                 <input
                                     
-                                    type="number" step="1" max="10" min="1" value={1} title="Qty"
+                                    type="number" step="1" max="10" min="1" value={this.state.setItemQuantity} title="Qty"
                                        className="qty"
                                        size="4" />
                                     <input
-                                        
+                                        onClick={(e) => {this.incrementOrDecrement(e, 'decrement')}}
                                         type="button" value="-" className="minus" />
                         </div>
                     </div>
                     <div className="col-2 col-sm-2 col-md-2 text-right">
-                        <button
-                            type="button" className="btn btn-outline-danger btn-xs">
-                            <i className="fa fa-trash" onClick={this.removeItem} />
+                        <button 
+                            type="button" className="btn btn-outline-danger btn-xs" onClick={this.removeItem}>
+                            <i className="fa fa-trash"  />
                         </button>
                     </div>
                 </div>
@@ -52,4 +81,4 @@ class CartItem extends Component{
 
 }
 
-export default connect()(CartItem);
+export default connect(null, {removeProductFromCart, incrementCartQuantity, decrementCartQuantity})(CartItem);
