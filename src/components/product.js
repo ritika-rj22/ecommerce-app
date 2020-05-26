@@ -12,7 +12,12 @@ class Product extends Component {
                             <img className="pic-2" src={require(`../images/${this.props.productInfo.image}`)} />
                         </a>
                         <ul className="social">
-                            <li><a href="#" data-tip="Quick View"><i className="fa fa-eye"></i></a></li>
+                            <li><Link to={{
+                                pathname: '/productInfo',
+                                state: {
+                                    productInfo: this.props.productInfo
+                                }
+                            }} data-tip="Quick View"><i className="fa fa-eye"></i></Link></li>
                             <li><a href="#" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a></li>
                             <li><a href="#" data-tip="Add to Cart"><i className="fa fa-shopping-cart"></i></a></li>
                         </ul>

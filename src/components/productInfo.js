@@ -60,11 +60,12 @@ class ProductInfo extends Component {
 
                         </div>
                         <hr />
-                        <Link to="/cart" class="btn btn-lg btn-primary text-uppercase" style={{ marginRight: "10px" }}> Buy Now </Link>
-                        <Link to="/" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </Link>
+                        <Link to="/cart" class="btn btn-md btn-primary text-uppercase" style={{ marginRight: "10px" }}> Buy Now </Link>
+                        <Link to="/" class="btn btn-md btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </Link>
+                        <p style={{ marginTop: "10px" }}><Link to="/" > <i class="fas fa-arrow-left"></i> Go Back </Link></p>
                     </article>
                 </aside>
-            </div>
+            </div >
         );
     }
 }

@@ -1,6 +1,6 @@
 
 import React, { Fragment, Component } from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, Redirect, Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -41,7 +41,7 @@ class Header extends Component {
         let loginlogut = "";
         if (this.state.userInfo) {
             loginlogut = (<li className="nav-item">
-                <a onClick={this.logoutSession} className="nav-link">Logout</a>
+                <a onClick={this.logoutSession} className="nav-link" style={{ cursor: "pointer" }}>Logout</a>
             </li>)
         } else {
             loginlogut = (
@@ -60,7 +60,7 @@ class Header extends Component {
             <Fragment>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div className="container">
-                        <a className="navbar-brand" href="index.html">Simple Ecommerce</a>
+                        <Link className="navbar-brand" to="/">E-Commerce</Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
