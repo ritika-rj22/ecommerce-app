@@ -46,7 +46,7 @@ class Login extends Component {
 
     render() {
             if(this.props.loginuser.status){
-                if(this.props.loginuser.status == "success"){
+                if(this.props.loginuser.status === "success"){
                     localStorage.setItem("userInfo",JSON.stringify(this.props.loginuser.user))
                     return (<Redirect to="/"/>)
                 } else {

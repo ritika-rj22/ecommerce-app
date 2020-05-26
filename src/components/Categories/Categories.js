@@ -11,7 +11,7 @@ class CategoryFilter extends Component {
 
     handleSelectBox = (e) => {
         const name = e.target.name;
-        const value = e.target.checked;
+        // const value = e.target.checked;
 
         if (e.target.checked) {
             this.props.addBrandToFilter(name);
@@ -21,17 +21,17 @@ class CategoryFilter extends Component {
     };
 
     render() {
-        return (<article class="card-group-item">
-            <header class="card-header">
-                <h6 class="title">Categories </h6>
+        return (<article className="card-group-item">
+            <header className="card-header">
+                <h6 className="title">Categories </h6>
             </header>
-            <div class="filter-content">
-                <div class="card-body">
+            <div className="filter-content">
+                <div className="card-body">
                     <form>
-                        {this.props.categories.map(category => (
-                            <label class="form-check" key={category}>
-                                <input class="form-check-input" type="checkbox" name={category.categoryId} onClick={this.handleSelectBox} />
-                                <span class="form-check-label">
+                        {this.props.categories.map((category,index) => (
+                            <label className="form-check" key={index}>
+                                <input className="form-check-input" type="checkbox" name={category.categoryId} onClick={this.handleSelectBox} />
+                                <span className="form-check-label">
                                     {category.categoryName}
                                 </span>
                             </label>

@@ -98,5 +98,6 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 .product-grid2 .title a{color:#303030}
 .product-grid2 .title a:hover{color:#3498db}
 .product-grid2 .price{color:#303030;font-size:15px}
+.product-content a:hover{color:white!important;text-decoration:none;}
 @media screen and (max-width:990px){.product-grid2{margin-bottom:30px}
 }

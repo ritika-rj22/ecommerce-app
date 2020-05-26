@@ -8,7 +8,6 @@ class Cart extends Component {
     render() {
 
         return (
-
             <div className="container" style={{paddingTop: '6rem'}}>
             <div className="card shopping-cart">
                 <div className="card-header bg-dark text-light">
