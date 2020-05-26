@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import './style/style.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from "./components/header";
 import Banner from "./components/banner";
 import Login from "./components/login";
@@ -8,7 +8,7 @@ import Footer from "./components/footer";
 import Cart from "./components/cart";
 import Home from "./components/home";
 import Category from "./components/category";
-import Logout from "./components/logout"
+import ProductInfo from "./components/productInfo"
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.props.location.pathname == "/login") {
+    if (this.props.location.pathname === "/login") {
       return (
         <Login />
       )
@@ -31,12 +31,11 @@ class App extends Component {
           <Header />
           <Banner />
           <div className="container mb-4">
-            <img className="pic-1" src={Image} />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/cart" component={Cart} />
               <Route path="/category/:categoryName" component={Category} />
-              <Route path="/logout" component={Logout} />
+              <Route path="/productInfo" component={ProductInfo} />
               {/* <Route path="/category/:categoryName" component={Category} /> */}
             </Switch>
 

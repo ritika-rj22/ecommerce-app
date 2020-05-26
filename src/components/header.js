@@ -1,12 +1,13 @@
 
 import React, { Fragment, Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCategories } from '../actions/categoryActions';
 import { continueStatement } from "@babel/types";
 import { fetchProducts } from '../actions/productActions';
+import { logout } from '../actions/loginActions';
 
 class Header extends Component {
 
@@ -31,11 +32,16 @@ class Header extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    logoutSession = () => {
+        this.props.logout();
+    }
+
+
     render() {
         let loginlogut = "";
         if (this.state.userInfo) {
             loginlogut = (<li className="nav-item">
-                <NavLink to="/logout" className="nav-link">Logout</NavLink>
+                <a onClick={this.logoutSession} className="nav-link">Logout</a>
             </li>)
         } else {
             loginlogut = (
@@ -43,6 +49,12 @@ class Header extends Component {
                     <NavLink to="/login" className="nav-link">Login</NavLink>
                 </li>)
 
+        }
+        if (this.props.loginuser.logoutStatus) {
+            if (this.props.loginuser.logoutStatus == "success") {
+                localStorage.removeItem("userInfo");
+                return (<Redirect to="/login" />)
+            }
         }
         return (
             <Fragment>
@@ -56,10 +68,10 @@ class Header extends Component {
                         <div className="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
                             <ul className="navbar-nav m-auto">
                                 <li className="nav-item m-auto">
-                                    <NavLink to="/" className="nav-link">Home</NavLink>
+                                    <NavLink to="/" exact className="nav-link">Home</NavLink>
                                 </li>
 
-                                <li className="nav-item">
+                                <li className="nav-item m-auto">
                                     <NavLink to="/cart" className="nav-link">Cart</NavLink>
                                 </li>
                                 {
@@ -77,7 +89,7 @@ class Header extends Component {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="ml-3">
+                                {/* <div className="ml-3">
                                     <Dropdown>
                                         <Dropdown.Toggle variant="warning" id="dropdown-basic">
                                             Categories
@@ -96,7 +108,7 @@ class Header extends Component {
 
                                         </Dropdown.Menu>
                                     </Dropdown>
-                                </div>
+                                </div> */}
                                 <a className="btn btn-success btn-sm ml-3" href="cart.html">
                                     <i className="fa fa-shopping-cart"></i> Cart
                     <span className="badge badge-light">3</span>
@@ -112,11 +124,14 @@ class Header extends Component {
 
 Header.propTypes = {
     fetchCategories: PropTypes.func.isRequired,
-    categories: PropTypes.array.isRequired
+    categories: PropTypes.array.isRequired,
+    logout: PropTypes.func.isRequired,
+    loginuser: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    categories: state.categories.items
+    categories: state.categories.items,
+    loginuser: state.loginuser.item
 })
 
-export default connect(mapStateToProps, { fetchCategories, fetchProducts })(Header);
+export default connect(mapStateToProps, { fetchCategories, fetchProducts, logout })(Header);

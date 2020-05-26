@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Image from "../images/Image1.png";
+import { Link } from "react-router-dom";
 class Product extends Component {
     state = {}
     render() {
@@ -9,22 +9,27 @@ class Product extends Component {
                     <div className="product-image2">
                         <a href="#">
                             <img className="pic-1" src={require(`../images/${this.props.productInfo.image}`)} />
-                                <img className="pic-2" src={require(`../images/${this.props.productInfo.image}`)} />
+                            <img className="pic-2" src={require(`../images/${this.props.productInfo.image}`)} />
                         </a>
                         <ul className="social">
-                                <li><a href="#" data-tip="Quick View"><i className="fa fa-eye"></i></a></li>
-                                <li><a href="#" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a></li>
-                                <li><a href="#" data-tip="Add to Cart"><i className="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a className="add-to-cart" href="">Add to cart</a>
+                            <li><a href="#" data-tip="Quick View"><i className="fa fa-eye"></i></a></li>
+                            <li><a href="#" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a></li>
+                            <li><a href="#" data-tip="Add to Cart"><i className="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                        <a className="add-to-cart" href="">Add to cart</a>
                     </div>
-                        <div className="product-content">
-                            <h3 className="title"><a href="#">{this.props.productInfo.productName}</a></h3>
-                            <span className="price">${this.props.productInfo.productPrice}</span>
-                        </div>
+                    <div className="product-content">
+                        <h3 className="title"><Link to={{
+                            pathname: '/productInfo',
+                            state: {
+                                productInfo: this.props.productInfo
+                            }
+                        }}>{this.props.productInfo.productName}</Link></h3>
+                        <span className="price">${this.props.productInfo.productPrice}</span>
                     </div>
-                </div>);
-        }
+                </div>
+            </div>);
     }
-    
+}
+
 export default Product;

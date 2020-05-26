@@ -1,5 +1,4 @@
 import React, { Fragment, Component } from "react";
-import CheckoutBottom from "./checkoutBottom";
 
 class Cart extends Component {
     state = {}
@@ -22,7 +21,7 @@ class Cart extends Component {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" alt="IMG" /> </td>
                                     <td>Product Name Dada</td>
                                     <td>In stock</td>
                                     <td><input class="form-control" type="text" value="1" /></td>
@@ -30,7 +29,7 @@ class Cart extends Component {
                                     <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" alt="IMG" /> </td>
                                     <td>Product Name Toto</td>
                                     <td>In stock</td>
                                     <td><input class="form-control" type="text" value="1" /></td>
@@ -38,7 +37,7 @@ class Cart extends Component {
                                     <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" alt="IMG" /> </td>
                                     <td>Product Name Titi</td>
                                     <td>In stock</td>
                                     <td><input class="form-control" type="text" value="1" /></td>

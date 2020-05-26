@@ -15,8 +15,8 @@ class Products extends Component {
             <Fragment>
                 <div className="row">
                     {
-                        this.props.products.map(product => {
-                            return <Product productInfo={product} />
+                        this.props.products.map((product,index) => {
+                            return <Product key={index} productInfo={product} />
                         })
                     }
                 </div>
