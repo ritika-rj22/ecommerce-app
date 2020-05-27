@@ -8,7 +8,7 @@ import Footer from "./components/footer";
 import Cart from "./components/cart";
 import Home from "./components/home";
 import Category from "./components/category";
-import ProductInfo from "./components/productInfo"
+import ProductInfo from "./components/Products/productInfo"
 
 class App extends Component {
   constructor(props) {

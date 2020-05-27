@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../style/productInfo.css';
+import '../../style/productInfo.css';
 import { Link } from "react-router-dom";
-import { addProductToCart } from "../actions/cartActions";
+import { addProductToCart } from "../../actions/cartActions";
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,7 +28,7 @@ class ProductInfo extends Component {
                 <aside class="col-sm-5 border-right">
                     <article class="gallery-wrap">
                         <div class="img-big-wrap">
-                            <div> <img src={require(`../images/${this.state.productInfo.image}`)} /></div>
+                            <div> <img src={require(`../../images/${this.state.productInfo.image}`)} /></div>
                         </div>
 
                     </article>

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Product from "./product";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../actions/productActions';
+import { fetchProducts } from '../../actions/productActions';
 
 class Products extends Component {
 
@@ -15,7 +15,7 @@ class Products extends Component {
             <Fragment>
                 <div className="row">
                     {
-                        this.props.products.map((product,index) => {
+                        this.props.products.map((product, index) => {
                             return <Product key={index} productInfo={product} />
                         })
                     }

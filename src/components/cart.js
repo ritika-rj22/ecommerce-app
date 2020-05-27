@@ -24,14 +24,19 @@ class Cart extends Component {
                     </div>
                     <div className="card-footer">
                         <div className="pull-right" style={{ margin: '10px' }}>
-                        {this.props.cartItemCount ? (<div className="pull-right" style={{ margin: '5px' }}>
-                                Total price: <b>{ (this.props.totalPrice)}$</b>
+                            {this.props.cartItemCount ? (<div className="pull-right" style={{ margin: '5px' }}>
+                                Total price: <b>{(this.props.totalPrice)}$</b>
                             </div>) : <h3></h3>}
                         </div>
-                        <p style={{ marginTop: "10px" }}><Link to="/" > <i class="fas fa-arrow-left"></i> Go Back </Link></p>
-                  
+                        {
+                            this.props.cartItemCount ? "" :
+                                (<p style={{ marginTop: "10px" }}><Link to="/" > <i class="fas fa-arrow-left"></i> Go Back </Link></p>)}
+                        {this.props.cartItemCount ? <CheckoutBottom cartItems={this.props.cartItems} /> : ""}
+
                     </div>
+
                 </div>
+
             </div>
 
 

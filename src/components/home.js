@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Products from "./products";
+import Products from "./Products/products";
 import CategoryFilter from "../components/Categories/Categories";
 
 class Home extends Component {

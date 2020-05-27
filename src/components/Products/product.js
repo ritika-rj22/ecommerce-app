@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Image from "../images/Image1.png";
-import { addProductToCart } from "../actions/cartActions";
+import Image from "../../images/Image1.png";
+import { addProductToCart } from "../../actions/cartActions";
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,8 +21,8 @@ class Product extends Component {
                 <div className="product-grid2">
                     <div className="product-image2">
                         <a href="#">
-                            <img className="pic-1" src={require(`../images/${this.props.productInfo.image}`)} />
-                            <img className="pic-2" src={require(`../images/${this.props.productInfo.image}`)} />
+                            <img className="pic-1" src={require(`../../images/${this.props.productInfo.image}`)} />
+                            <img className="pic-2" src={require(`../../images/${this.props.productInfo.image}`)} />
                         </a>
                         <ul className="social">
                             <li><Link to={{

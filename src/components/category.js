@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Products from "./products";
+import Products from "./Products/products";
 
 class Category extends Component {
     state = {}
