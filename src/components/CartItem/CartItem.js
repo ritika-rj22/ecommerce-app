@@ -1,6 +1,8 @@
-import React, { Fragment, Component, useState } from "react";
+import './CartItem.css';
+import React, { Fragment, Component  } from "react";
 import {connect} from 'react-redux';
 import {removeProductFromCart, incrementCartQuantity, decrementCartQuantity} from "../../actions/cartActions";
+import { Link } from "react-router-dom";
 
 class CartItem extends Component{
 
@@ -44,7 +46,8 @@ class CartItem extends Component{
                           />
                 </div>
                 <div className="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                    {/* <h4 className="product-name"><strong>{shortenTitle(this.props.productName)}</strong></h4> */}
+                    <h4 className="product-name"><strong>{this.props.productName}</strong></h4>
+                    
                     <h4>
                         <small className="product-description">{this.props.productDescription}</small>
                     </h4>
@@ -82,3 +85,4 @@ class CartItem extends Component{
 }
 
 export default connect(null, {removeProductFromCart, incrementCartQuantity, decrementCartQuantity})(CartItem);
+
