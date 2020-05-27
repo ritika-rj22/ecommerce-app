@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Image from "../images/Image1.png";
-import {addProductToCart} from "../actions/cartActions";
+import { addProductToCart } from "../actions/cartActions";
 import { connect } from 'react-redux';
 
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ class Product extends Component {
                             <li><a href="#" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a></li>
                             <li><a href="#" data-tip="Add to Cart" onClick={this.handleAddToCart}><i className="fa fa-shopping-cart"></i></a></li>
                         </ul>
-                        <button className="add-to-cart"  onClick={this.handleAddToCart} href="">Add to cart</button>
+                        <button className="add-to-cart" onClick={this.handleAddToCart} href="">Add to cart</button>
                     </div>
                     <div className="product-content">
                         <h3 className="title"><Link to={{
@@ -46,4 +46,4 @@ class Product extends Component {
     }
 }
 
-export default connect(null, {addProductToCart}) (Product);
+export default connect(null, { addProductToCart })(Product);

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import '../style/productInfo.css';
 import { Link } from "react-router-dom";
+import { addProductToCart } from "../actions/cartActions";
+import { connect } from 'react-redux';
+
 class ProductInfo extends Component {
     constructor(props) {
         super(props);
@@ -9,6 +12,13 @@ class ProductInfo extends Component {
             quantity: [1, 2, 3, 4, 5]
         }
     }
+
+    handleAddToCart = (e) => {
+        console.log('Inside Add to cart');
+        this.props.addProductToCart(this.state.productInfo);
+    }
+
+
     render() {
         return (
             <div class="row" style={{ backgroundColor: "#fff" }}>
@@ -61,7 +71,7 @@ class ProductInfo extends Component {
                         </div>
                         <hr />
                         <Link to="/cart" class="btn btn-md btn-primary text-uppercase" style={{ marginRight: "10px" }}> Buy Now </Link>
-                        <Link to="/" class="btn btn-md btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </Link>
+                        <a href="javascript:void(0)" class="btn btn-md btn-outline-primary text-uppercase" onClick={this.handleAddToCart}> <i class="fas fa-shopping-cart"></i> Add to cart </a>
                         <p style={{ marginTop: "10px" }}><Link to="/" > <i class="fas fa-arrow-left"></i> Go Back </Link></p>
                     </article>
                 </aside>
@@ -70,4 +80,4 @@ class ProductInfo extends Component {
     }
 }
 
-export default ProductInfo;
+export default connect(null, { addProductToCart })(ProductInfo);

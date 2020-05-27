@@ -111,7 +111,7 @@ class Header extends Component {
                                 </div> */}
                                 <a className="btn btn-success btn-sm ml-3" href="cart.html">
                                     <i className="fa fa-shopping-cart"></i> Cart
-                    <span className="badge badge-light">3</span>
+                    <span className="badge badge-light" style={{ marginLeft: "5px" }}>{this.props.cartItemCount}</span>
                                 </a>
                             </form>
                         </div>
@@ -131,7 +131,8 @@ Header.propTypes = {
 
 const mapStateToProps = state => ({
     categories: state.categories.items,
-    loginuser: state.loginuser.item
+    loginuser: state.loginuser.item,
+    cartItemCount: state.cart.cart.length
 })
 
 export default connect(mapStateToProps, { fetchCategories, fetchProducts, logout })(Header);
