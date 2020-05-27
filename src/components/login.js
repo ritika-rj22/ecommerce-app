@@ -5,7 +5,10 @@ import validateInput from "./validators/validateInput";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login } from '../actions/loginActions';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class Login extends Component {
 
     constructor(props){
@@ -16,9 +19,9 @@ class Login extends Component {
             errors: {},
             isloading: false
          }
-    }    
+    }   
+                    
     
-
     onChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
     }
@@ -34,10 +37,11 @@ class Login extends Component {
         return isValid;
     }
 
-    onSubmit = (e) => {
+    onSubmit = (e) => {     
         if(this.isValid()){ 
-            this.setState({errors:{},isloading:true});            
-            this.props.login(this.state);   
+            this.setState({errors:{},isloading:true});                     
+            this.props.login(this.state);
+            toast.success('You have Logged In successfully!')   
             //this.props.history.push("/")
             
         }
@@ -48,7 +52,8 @@ class Login extends Component {
             if(this.props.loginuser.status){
                 if(this.props.loginuser.status === "success"){
                     localStorage.setItem("userInfo",JSON.stringify(this.props.loginuser.user))
-                    return (<Redirect to="/"/>)
+                    return (<Redirect to="/"/>);                    
+                    
                 } else {
                     this.setState({"errors.invalidUser":"Inavlid username or password"})
                 }

@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import Image from "../images/Image1.png";
 import { addProductToCart } from "../actions/cartActions";
 import { connect } from 'react-redux';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
+
+toast.configure()
 class Product extends Component {
     state = {}
 
     handleAddToCart = (e) => {
         console.log('Inside Add to cart');
         this.props.addProductToCart(this.props.productInfo);
+        toast.success('Product has been added to cart');
     }
     render() {
         return (

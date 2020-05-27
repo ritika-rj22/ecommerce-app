@@ -16,7 +16,6 @@ class App extends Component {
     this.state = {
 
     }
-    console.log(this.props.location.pathname);
   }
 
   render() {

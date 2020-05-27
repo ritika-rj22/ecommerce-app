@@ -8,7 +8,10 @@ import { fetchCategories } from '../actions/categoryActions';
 import { continueStatement } from "@babel/types";
 import { fetchProducts } from '../actions/productActions';
 import { logout } from '../actions/loginActions';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class Header extends Component {
 
     constructor(props) {
@@ -34,6 +37,7 @@ class Header extends Component {
 
     logoutSession = () => {
         this.props.logout();
+        toast.success('You have Logged Out successfully!');
     }
 
 
@@ -53,7 +57,9 @@ class Header extends Component {
         if (this.props.loginuser.logoutStatus) {
             if (this.props.loginuser.logoutStatus == "success") {
                 localStorage.removeItem("userInfo");
-                return (<Redirect to="/login" />)
+                return (<Redirect to="/login" />);
+
+
             }
         }
         return (

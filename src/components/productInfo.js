@@ -3,7 +3,10 @@ import '../style/productInfo.css';
 import { Link } from "react-router-dom";
 import { addProductToCart } from "../actions/cartActions";
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class ProductInfo extends Component {
     constructor(props) {
         super(props);
@@ -14,8 +17,8 @@ class ProductInfo extends Component {
     }
 
     handleAddToCart = (e) => {
-        console.log('Inside Add to cart');
         this.props.addProductToCart(this.state.productInfo);
+        toast.success('Product has been added to cart');
     }
 
 
@@ -51,24 +54,7 @@ class ProductInfo extends Component {
                             <dt>Color</dt>
                             <dd>{this.state.productInfo.color}</dd>
                         </dl>
-                        <hr />
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <dl class="param param-inline">
-                                    <dt>Quantity: </dt>
-                                    <dd>
-                                        <select class="form-control form-control-sm" style={{ width: "70px" }}>
-                                            {
-                                                this.state.quantity.map(qty => {
-                                                    return (<option value={qty} key={qty}>{qty}</option>)
-                                                })
-                                            }
-                                        </select>
-                                    </dd>
-                                </dl>
-                            </div>
 
-                        </div>
                         <hr />
                         <Link to="/cart" class="btn btn-md btn-primary text-uppercase" style={{ marginRight: "10px" }}> Buy Now </Link>
                         <a href="javascript:void(0)" class="btn btn-md btn-outline-primary text-uppercase" onClick={this.handleAddToCart}> <i class="fas fa-shopping-cart"></i> Add to cart </a>
