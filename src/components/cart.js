@@ -2,6 +2,7 @@ import React, { Fragment, Component } from "react";
 import { connect } from 'react-redux';
 import CheckoutBottom from "./checkoutBottom";
 import CartItem from '../components/CartItem/CartItem';
+import { Link } from "react-router-dom";
 
 class Cart extends Component {
     state = {}
@@ -23,10 +24,12 @@ class Cart extends Component {
                     </div>
                     <div className="card-footer">
                         <div className="pull-right" style={{ margin: '10px' }}>
-                            <div className="pull-right" style={{ margin: '5px' }}>
-                                Total price: <b>{(this.props.totalPrice)}$</b>
-                            </div>
+                        {this.props.cartItemCount ? (<div className="pull-right" style={{ margin: '5px' }}>
+                                Total price: <b>{ (this.props.totalPrice)}$</b>
+                            </div>) : <h3></h3>}
                         </div>
+                        <p style={{ marginTop: "10px" }}><Link to="/" > <i class="fas fa-arrow-left"></i> Go Back </Link></p>
+                  
                     </div>
                 </div>
             </div>
