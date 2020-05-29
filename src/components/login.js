@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "../style/login.css";
-import {Link, Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import validateInput from "./validators/validateInput";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,81 +11,81 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 class Login extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = { 
-            username : "",
-            password : "",
+        this.state = {
+            username: "",
+            password: "",
             errors: {},
             isloading: false
-         }
-    }   
-                    
-    
+        }
+    }
+
+
     onChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     isValid = () => {
-        const {errors, isValid} = validateInput(this.state);
+        const { errors, isValid } = validateInput(this.state);
 
-        if(!isValid){
+        if (!isValid) {
             console.log(errors)
-            this.setState({errors});
+            this.setState({ errors });
         }
 
         return isValid;
     }
 
-    onSubmit = (e) => { 
-        e.preventDefault();      
-        if(this.isValid()){ 
-            this.setState({errors:{},isloading:true});                     
+    onSubmit = (e) => {
+        e.preventDefault();
+        if (this.isValid()) {
+            this.setState({ errors: {}, isloading: true });
             this.props.login(this.state);
-            toast.success('You have Logged In successfully!')   
+            toast.success('You have Logged In successfully!')
             //this.props.history.push("/")
-            
+
         }
     }
 
 
     render() {
-            if(this.props.loginuser.status){
-                if(this.props.loginuser.status === "success"){
-                    localStorage.setItem("userInfo",JSON.stringify(this.props.loginuser.user))
-                    return (<Redirect to="/"/>);                    
-                    
-                } else {
-                    this.setState({"errors.invalidUser":"Inavlid username or password"})
-                }
+        if (this.props.loginuser.status) {
+            if (this.props.loginuser.status === "success") {
+                localStorage.setItem("userInfo", JSON.stringify(this.props.loginuser.user))
+                return (<Redirect to="/" />);
+
+            } else {
+                this.setState({ "errors.invalidUser": "Inavlid username or password" })
             }
-               
-         
-        return (           
+        }
+
+
+        return (
             <div id="login">
                 <div className="container">
                     <div id="login-row" className="row justify-content-center align-items-center">
                         <div id="login-column" className="col-md-6">
-                            <div id="login-box" className="col-md-12" style={{height:"350px"}}>
+                            <div id="login-box" className="col-md-12" style={{ height: "350px" }}>
                                 <form id="login-form" className="form">
                                     <h3 className="text-center text-info">Login</h3>
                                     <div className="invalidUserError"><span>{this.state.errors.invalidUser}</span></div>
                                     <div className="form-group">
-                                        <label  className="text-info">Username:</label><br/>
-                                        <input type="text" name="username" id="username" className="form-control" onChange={this.onChange}/>
+                                        <label className="text-info">Username:</label><br />
+                                        <input type="text" name="username" id="username" className="form-control" onChange={this.onChange} />
                                         <p className="error">{this.state.errors.username}</p>
                                     </div>
                                     <div className="form-group">
                                         <label className="text-info">Password:</label><br />
-                                        <input type="text" name="password" id="password" className="form-control" onChange={this.onChange}/>
+                                        <input type="text" name="password" id="password" className="form-control" onChange={this.onChange} />
                                         <p className="error">{this.state.errors.password}</p>
                                     </div>
                                     <div className="form-group">
-                                        <label className="text-info"><span>Remember me</span></label> <br />
-                                        <input type="submit" name="submit" className="btn btn-info btn-md" value="Submit" disabled={this.state.isloading} onClick={this.onSubmit}/>
+                                        <br />
+                                        <input type="submit" name="submit" className="btn btn-info btn-md" value="Submit" disabled={this.state.isloading} onClick={this.onSubmit} />
                                     </div>
                                     <div id="register-link" className="text-right">
-                                    <Link className="text-info" to="/">Go To Home Page</Link>
+                                        <Link className="text-info" to="/">Go To Home Page</Link>
                                     </div>
                                 </form>
                             </div>
@@ -93,7 +93,7 @@ class Login extends Component {
                     </div>
                 </div>
             </div>
-         );
+        );
     }
 }
 

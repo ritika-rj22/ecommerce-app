@@ -98,10 +98,10 @@ class Header extends Component {
                                         </button>
                                     </div>
                                 </div>
-                                <a className="btn btn-success btn-sm ml-3" href="cart.html">
+                                <Link className="btn btn-success btn-sm ml-3" to="/cart">
                                     <i className="fa fa-shopping-cart"></i> Cart
                     <span className="badge badge-light" style={{ marginLeft: "5px" }}>{this.props.cartItemCount}</span>
-                                </a>
+                                </Link>
                                 <span style={{ marginLeft: "10px", color: "#fff", fontWeight: "bold" }}>Welcome {displayName}</span>
 
                             </form>
