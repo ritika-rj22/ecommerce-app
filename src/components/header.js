@@ -42,11 +42,13 @@ class Header extends Component {
 
 
     render() {
-        let loginlogut = "";
+        let loginlogut = ""; let displayName = "Guest";
         if (this.state.userInfo) {
-            loginlogut = (<li className="nav-item">
-                <a onClick={this.logoutSession} className="nav-link" style={{ cursor: "pointer" }}>Logout</a>
-            </li>)
+            loginlogut = (
+                <li className="nav-item">
+                    <a onClick={this.logoutSession} className="nav-link" style={{ cursor: "pointer" }}>Logout</a>
+                </li>)
+            displayName = this.state.userInfo.username
         } else {
             loginlogut = (
                 <li className="nav-item">
@@ -57,6 +59,7 @@ class Header extends Component {
         if (this.props.loginuser.logoutStatus) {
             if (this.props.loginuser.logoutStatus == "success") {
                 localStorage.removeItem("userInfo");
+                localStorage.removeItem("orders");
                 return (<Redirect to="/login" />);
 
 
@@ -95,30 +98,12 @@ class Header extends Component {
                                         </button>
                                     </div>
                                 </div>
-                                {/* <div className="ml-3">
-                                    <Dropdown>
-                                        <Dropdown.Toggle variant="warning" id="dropdown-basic">
-                                            Categories
-                                        </Dropdown.Toggle>
-
-                                        <Dropdown.Menu>
-                                            {
-                                                this.props.categories.map(category => {
-                                                    return (
-
-                                                        <Dropdown.Item><NavLink to={"/category/" + category.categoryName} className="nav-link">{category.categoryName}</NavLink></Dropdown.Item>
-
-                                                    )
-                                                })
-                                            }
-
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div> */}
                                 <a className="btn btn-success btn-sm ml-3" href="cart.html">
                                     <i className="fa fa-shopping-cart"></i> Cart
                     <span className="badge badge-light" style={{ marginLeft: "5px" }}>{this.props.cartItemCount}</span>
                                 </a>
+                                <span style={{ marginLeft: "10px", color: "#fff", fontWeight: "bold" }}>Welcome {displayName}</span>
+
                             </form>
                         </div>
                     </div>

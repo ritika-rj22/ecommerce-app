@@ -8,7 +8,8 @@ import Footer from "./components/footer";
 import Cart from "./components/cart";
 import Home from "./components/home";
 import Category from "./components/category";
-import ProductInfo from "./components/Products/productInfo"
+import ProductInfo from "./components/Products/productInfo";
+import Thankyou from "./components/thankyou";
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends Component {
   }
 
   render() {
+    // /localStorage.removeItem("orders")
     if (this.props.location.pathname === "/login") {
       return (
         <Login />
@@ -35,6 +37,7 @@ class App extends Component {
               <Route path="/cart" component={Cart} />
               <Route path="/category/:categoryName" component={Category} />
               <Route path="/productInfo" component={ProductInfo} />
+              <Route path="/thankyou" component={Thankyou} />
               {/* <Route path="/category/:categoryName" component={Category} /> */}
             </Switch>
 

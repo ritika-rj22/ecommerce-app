@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "../style/login.css";
-import {NavLink, Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import validateInput from "./validators/validateInput";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -37,7 +37,8 @@ class Login extends Component {
         return isValid;
     }
 
-    onSubmit = (e) => {     
+    onSubmit = (e) => { 
+        e.preventDefault();      
         if(this.isValid()){ 
             this.setState({errors:{},isloading:true});                     
             this.props.login(this.state);
@@ -45,7 +46,7 @@ class Login extends Component {
             //this.props.history.push("/")
             
         }
-    }   
+    }
 
 
     render() {
@@ -65,7 +66,7 @@ class Login extends Component {
                 <div className="container">
                     <div id="login-row" className="row justify-content-center align-items-center">
                         <div id="login-column" className="col-md-6">
-                            <div id="login-box" className="col-md-12">
+                            <div id="login-box" className="col-md-12" style={{height:"350px"}}>
                                 <form id="login-form" className="form">
                                     <h3 className="text-center text-info">Login</h3>
                                     <div className="invalidUserError"><span>{this.state.errors.invalidUser}</span></div>
@@ -84,7 +85,7 @@ class Login extends Component {
                                         <input type="submit" name="submit" className="btn btn-info btn-md" value="Submit" disabled={this.state.isloading} onClick={this.onSubmit}/>
                                     </div>
                                     <div id="register-link" className="text-right">
-                                    <NavLink to="/" className="text-info">Go To Home Page</NavLink>
+                                    <Link className="text-info" to="/">Go To Home Page</Link>
                                     </div>
                                 </form>
                             </div>

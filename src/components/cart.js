@@ -17,8 +17,8 @@ class Cart extends Component {
                     <div className="clearfix"></div>
                     </div>
                     <div className="card-body">
-                        {this.props.cartItemCount ? this.props.cartItems.map(cart => (
-                            <CartItem {...cart} img={cart.image} />
+                        {this.props.cartItemCount ? this.props.cartItems.map((cart, index) => (
+                            <CartItem {...cart} img={cart.image} key={index} />
 
                         )) : <h3 className="display-4 mt-5 text-center">There is no product in your cart</h3>}
                     </div>
@@ -30,7 +30,7 @@ class Cart extends Component {
                         </div>
                         {
                             this.props.cartItemCount ? "" :
-                                (<p style={{ marginTop: "10px" }}><Link to="/" > <i class="fas fa-arrow-left"></i> Go Back </Link></p>)}
+                                (<p style={{ marginTop: "10px" }}><Link to="/" > <i className="fas fa-arrow-left"></i> Go Back </Link></p>)}
                         {this.props.cartItemCount ? <CheckoutBottom cartItems={this.props.cartItems} /> : ""}
 
                     </div>
